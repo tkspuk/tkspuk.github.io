@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>http://www.byto.top/article/python/</loc>
+        <lastmod>2019-08-27T13:54:03.937Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.byto.top/Netdevops/oxidized-01/</loc>
-        <lastmod>2019-08-27T13:40:00.581Z</lastmod>
+        <lastmod>2019-08-27T13:41:01.656Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
