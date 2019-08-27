@@ -7,6 +7,13 @@
     </url>
     
     <url>
+        <loc>http://www.byto.top/about/</loc>
+        <lastmod>2019-08-27T10:30:33.058Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://www.byto.top/404.html</loc>
         <lastmod>2019-08-27T09:13:34.050Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -16,13 +23,6 @@
     <url>
         <loc>http://www.byto.top/tags/</loc>
         <lastmod>2019-08-27T08:53:44.827Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://www.byto.top/about/</loc>
-        <lastmod>2019-08-27T08:53:44.793Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

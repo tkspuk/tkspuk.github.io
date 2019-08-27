@@ -7,27 +7,10 @@
     </url>
 
     <url>
-        <loc>http://www.byto.top/Netdevops/oxidized-01/</loc>
+        <loc>http://www.byto.top/categories/Netdevops/</loc>
         <lastmod>2019-08-27T10:55:39.574Z</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.byto.top/article/new-init/</loc>
-        <lastmod>2019-08-27T09:00:21.353Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.byto.top/article/hexo-theme-huweihuang/</loc>
-        <lastmod>2019-08-27T08:53:44.789Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
+        <priority>0.2</priority>
     </url>
 
 </urlset>
