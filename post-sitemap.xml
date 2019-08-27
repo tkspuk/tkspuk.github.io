@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://www.byto.top/article/test/</loc>
+        <lastmod>2019-08-27T12:20:56.101Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.byto.top/Netdevops/oxidized-01/</loc>
         <lastmod>2019-08-27T12:12:10.654Z</lastmod>
         <changefreq>weekly</changefreq>
