@@ -134,6 +134,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -142,13 +149,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -198,15 +198,11 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
-                    <a href="#py" title="py" rel="0">py</a>
-                
-                    <a href="#Devnet" title="Devnet" rel="0">Devnet</a>
+                    <a href="#python" title="python" rel="1">python</a>
                 
                     <a href="#Hexo" title="Hexo" rel="1">Hexo</a>
                 
                     <a href="#Oxidized" title="Oxidized" rel="1">Oxidized</a>
-                
-                    <a href="#python" title="python" rel="1">python</a>
                 
             </div>
 
@@ -214,16 +210,24 @@
 
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="py">
-                    <span class="tag-text">py</span>
+                <span class="fa fa-tag listing-seperator" id="python">
+                    <span class="tag-text">python</span>
                 </span>
                 
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Devnet">
-                    <span class="tag-text">Devnet</span>
-                </span>
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/PySnooper程序调试指南/">
+                        <h2 class="post-title">
+                            PySnooper程序调试完全指南
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
                 
             </div>
             
@@ -266,28 +270,6 @@
                      <a href="/Netdevops/oxidized-01/">
                         <h2 class="post-title">
                             [备份]使用开源Oxidized进行网络设备配置备份
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="python">
-                    <span class="tag-text">python</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/PySnooper程序调试指南/">
-                        <h2 class="post-title">
-                            PySnooper程序调试完全指南
                         </h2>
                         
                     </a>
