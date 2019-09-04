@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>http://www.byto.top/Netdevops/oxidized-01/</loc>
+        <lastmod>2019-09-04T02:59:43.857Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.byto.top/article/linux%E6%89%8B%E5%86%8C/</loc>
-        <lastmod>2019-09-04T02:55:28.243Z</lastmod>
+        <lastmod>2019-09-04T02:55:57.270Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,14 +25,6 @@
     <url>
         <loc>http://www.byto.top/article/PySnooper%E7%A8%8B%E5%BA%8F%E8%B0%83%E8%AF%95%E6%8C%87%E5%8D%97/</loc>
         <lastmod>2019-08-29T03:48:45.488Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.byto.top/Netdevops/oxidized-01/</loc>
-        <lastmod>2019-08-27T14:47:41.743Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
