@@ -213,7 +213,24 @@
                 <h3 id="ubuntu-修改时区">Ubuntu 修改时区</h3>
 <p>通过以下命令修改时区</p>
 <figure class="highlight bash"><figcaption><span>timezone.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">timedatectl <span class="built_in">set</span>-timezone <span class="string">"Asia/Shanghai"</span></span><br><span class="line">timedatectl status</span><br><span class="line">date -R</span><br></pre></td></tr></table></figure>
-
+<h1 id="ubuntu1804-开机自启动脚本-rclocal">Ubuntu18.04 开机自启动脚本 rc.local</h1>
+<p>Ubuntu没有自带其他linux版本自带的rc.local文件的开机自启动方法，所以要自己生成rc.local文件：</p>
+<p>1.生成rc-local.service文件将一下内容复制进rc-local…service文件</p>
+<p><code>sudo vi /etc/systemd/system/rc-local.service</code></p>
+<p>将以下内容复制进该文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=/etc/rc.local Compatibility</span><br><span class="line">ConditionPathExists=/etc/rc.local  <span class="comment">#脚本文件位置</span></span><br><span class="line"> </span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/etc/rc.local start  <span class="comment">#配置的脚本文件rc.local为start</span></span><br><span class="line">TimeoutSec=0    </span><br><span class="line">StandardOutput=tty  <span class="comment">#标准输出</span></span><br><span class="line">RemainAfterExit=yes</span><br><span class="line">SysVStartPriority=99  <span class="comment">#优先级，当有多个开机启动文件时可以设置不同的值</span></span><br><span class="line"> </span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>2.生成rc.local<br>
+<code>sudo gedit /etc/rc.local</code><br>
+将以下内容复制进文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/sh -e</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># rc.local</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># This script is executed at the end of each multiuser runlevel.</span></span><br><span class="line"><span class="comment"># Make sure that the script will "exit 0" on success or any other</span></span><br><span class="line"><span class="comment"># value on error.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># In order to enable or disable this script just change the execution</span></span><br><span class="line"><span class="comment"># bits.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># By default this script does nothing.</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"看到这行字，说明添加自启动脚本成功。"</span> &gt; /usr/<span class="built_in">local</span>/test.log</span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<p>3.给rc.local加上权限，启用服务，启动服务并检查状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /etc/rc.local</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> rc-local  <span class="comment">#可能报错</span></span><br><span class="line">sudo systemctl start rc-local.service</span><br><span class="line">sudo systemctl status rc-local.service</span><br></pre></td></tr></table></figure>
+<p>4.重启并检查test.log文件<br>
+<code>cat /usr/local/test.log</code></p>
+<p>利用rc.local文件配置开机自启动脚本<br>
+<code>sudo vi /etc/rc.local</code> 打开脚本文件，然后在exit 0前面加入需要执行的代码即可。</p>
+<p>然后再执行下面代码（18.04需要，其他系统可能不需要，可以不执行，重启试一下）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> rc-local</span><br><span class="line">sudo systemctl start rc-local.service</span><br><span class="line">sudo systemctl status rc-local.service</span><br></pre></td></tr></table></figure>
                 
 
                 <hr>
@@ -278,7 +295,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ubuntu-修改时区"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Ubuntu &#x4FEE;&#x6539;&#x65F6;&#x533A;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ubuntu-修改时区"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Ubuntu &#x4FEE;&#x6539;&#x65F6;&#x533A;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ubuntu1804-开机自启动脚本-rclocal"><span class="toc-nav-number"></span> <span class="toc-nav-text">Ubuntu18.04 &#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;&#x811A;&#x672C; rc.local</span></a>
         
         </div>
       </aside>
