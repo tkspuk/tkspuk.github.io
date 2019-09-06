@@ -231,6 +231,29 @@
 <code>sudo vi /etc/rc.local</code> 打开脚本文件，然后在exit 0前面加入需要执行的代码即可。</p>
 <p>然后再执行下面代码（18.04需要，其他系统可能不需要，可以不执行，重启试一下）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> rc-local</span><br><span class="line">sudo systemctl start rc-local.service</span><br><span class="line">sudo systemctl status rc-local.service</span><br></pre></td></tr></table></figure>
+<h1 id="ubuntu下环境变量详解-bashrc-profile-environment">ubuntu下环境变量详解 bashrc, profile, environment</h1>
+<p>在Ubuntu中有如下几个文件可以设置环境变量</p>
+<p>/etc/profile:在登录时,操作系统定制用户环境时使用的第一个文件,此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行.</p>
+<p>/etc/environment:在登录时操作系统使用的第二个文件,系统在读取你自己的profile前,设置环境文件的环境变量</p>
+<p>~/.profile:在登录时用到的第三个文件是.profile文件,每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件.</p>
+<p>/etc/bashrc:为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取.</p>
+<p>~/.bashrc:该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取.</p>
+<p>通常设置环境变量有三种方法：<br>
+一、临时设置<br>
+export PATH=/home/yan/share/usr/local/arm/3.4.1/bin:$PATH</p>
+<p>二、当前用户的全局设置<br>
+打开~/.bashrc，添加行：<br>
+export PATH=/home/yan/share/usr/local/arm/3.4.1/bin:$PATH</p>
+<p>使生效</p>
+<p>source .bashrc<br>
+三、所有用户的全局设置<br>
+$ vim /etc/profile<br>
+在里面加入：<br>
+export PATH=/home/yan/share/usr/local/arm/3.4.1/bin:$PATH<br>
+使生效<br>
+source profile</p>
+<p>测试 echo $PATH</p>
+
                 
 
                 <hr>
@@ -295,7 +318,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ubuntu-修改时区"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Ubuntu &#x4FEE;&#x6539;&#x65F6;&#x533A;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ubuntu1804-开机自启动脚本-rclocal"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Ubuntu18.04 &#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;&#x811A;&#x672C; rc.local</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1生成rc-localservice文件将一下内容复制进rc-localservice文件"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1.&#x751F;&#x6210;rc-local.service&#x6587;&#x4EF6;&#x5C06;&#x4E00;&#x4E0B;&#x5185;&#x5BB9;&#x590D;&#x5236;&#x8FDB;rc-local&#x2026;service&#x6587;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2生成rclocal"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.&#x751F;&#x6210;rc.local</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3给rclocal加上权限启用服务启动服务并检查状态"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3.&#x7ED9;rc.local&#x52A0;&#x4E0A;&#x6743;&#x9650;&#xFF0C;&#x542F;&#x7528;&#x670D;&#x52A1;&#xFF0C;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5E76;&#x68C0;&#x67E5;&#x72B6;&#x6001;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4重启并检查testlog文件"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4.&#x91CD;&#x542F;&#x5E76;&#x68C0;&#x67E5;test.log&#x6587;&#x4EF6;</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ubuntu-修改时区"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Ubuntu &#x4FEE;&#x6539;&#x65F6;&#x533A;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ubuntu1804-开机自启动脚本-rclocal"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Ubuntu18.04 &#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;&#x811A;&#x672C; rc.local</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1生成rc-localservice文件将一下内容复制进rc-localservice文件"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1.&#x751F;&#x6210;rc-local.service&#x6587;&#x4EF6;&#x5C06;&#x4E00;&#x4E0B;&#x5185;&#x5BB9;&#x590D;&#x5236;&#x8FDB;rc-local&#x2026;service&#x6587;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2生成rclocal"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.&#x751F;&#x6210;rc.local</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3给rclocal加上权限启用服务启动服务并检查状态"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3.&#x7ED9;rc.local&#x52A0;&#x4E0A;&#x6743;&#x9650;&#xFF0C;&#x542F;&#x7528;&#x670D;&#x52A1;&#xFF0C;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5E76;&#x68C0;&#x67E5;&#x72B6;&#x6001;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4重启并检查testlog文件"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4.&#x91CD;&#x542F;&#x5E76;&#x68C0;&#x67E5;test.log&#x6587;&#x4EF6;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ubuntu下环境变量详解-bashrc-profile-environment"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">ubuntu&#x4E0B;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x8BE6;&#x89E3; bashrc, profile, environment</span></a></li></ol>
         
         </div>
       </aside>
