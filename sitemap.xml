@@ -3,7 +3,7 @@
 
     <sitemap>
         <loc>http://www.byto.top/post-sitemap.xml</loc>
-        <lastmod>2019-09-14T15:12:46.750Z</lastmod>
+        <lastmod>2019-09-14T15:18:57.052Z</lastmod>
     </sitemap>
 
     <sitemap>
@@ -12,8 +12,13 @@
     </sitemap>
 
     <sitemap>
+        <loc>http://www.byto.top/category-sitemap.xml</loc>
+        <lastmod>2019-09-14T15:18:57.052Z</lastmod>
+    </sitemap>
+
+    <sitemap>
         <loc>http://www.byto.top/tag-sitemap.xml</loc>
-        <lastmod>2019-09-14T15:12:46.750Z</lastmod>
+        <lastmod>2019-09-14T15:18:57.052Z</lastmod>
     </sitemap>
 
 </sitemapindex>
