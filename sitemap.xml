@@ -2,6 +2,11 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <sitemap>
+        <loc>http://www.byto.top/post-sitemap.xml</loc>
+        <lastmod>2019-09-14T07:39:50.791Z</lastmod>
+    </sitemap>
+
+    <sitemap>
         <loc>http://www.byto.top/page-sitemap.xml</loc>
         <lastmod>2019-08-27T16:05:04.160Z</lastmod>
     </sitemap>
