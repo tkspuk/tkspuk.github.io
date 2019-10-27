@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          CCIE-是终点还是起点? - locus | Blog
+          使用GitBook进行知识整理 - locus | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.byto.top/个人/CCIE-是终点还是起点/">
+    <link rel="canonical" href="http://www.byto.top/article/使用GitBook进行知识整理/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,14 +88,12 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#随笔" title="随笔">随笔</a>
-                            
                         </div>
-                        <h1>CCIE-是终点还是起点?</h1>
+                        <h1>使用GitBook进行知识整理</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by locus on
-                            2019-09-14
+                            2019-10-27
                         </span>
                     </div>
                 
@@ -212,38 +210,49 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>光阴荏苒，日月如梭，工作已经10年了，也同时距离我通过第一个CCIE认证已有7年了。邮箱中再一次收到无趣的电子邮件：</p>
-<blockquote>
-<p>CCIE: Your CCIE status is ‘suspended’ and you need to recertify in twelve months</p>
-</blockquote>
-<p>随着网络技术的发展，是该重新评估一下CCIE对我意义了。是应该更新？还是放弃？我的意见发生了变化。</p>
-<h1 id="我应该重认证吗">我应该重认证吗？</h1>
-<p>自从2012年第一次获取CCIE Voice开始，期间已多次续命了，同时也包括2015年考取的第二个CCIE数据中心认证，虽然离十年的Emeritus越来越近了，但仍还有几年的时间。</p>
-<p>我的工作生涯在过去几年中发生了变化。作为网络技术人员，在过去几年，我从原来的技术工程师转变为咨询顾问，专注于网络架构规划设计，实施路线图以及与客户交谈，以至于我几乎很少花时间来接触网络设备或CLI。而在今年我又迎接了新的挑战，转战一家互联公司从事运维工作，我也更多的希望从事NetDevops的工作，并尝试建立自动化运维体系，尝试编写Python，纯粹的网络命令操作只是我工作的一部分。</p>
-<p>而CCIE并不能满足当前的知识需要。</p>
-<p>未来，我不太可能再次成为传统的“CLI”网络工程师。并非不能，而是不太想可能。我猜测的雇主与老板是否会关心我拥有CCIE认证。在这时间点上，我想经验与能力重要。</p>
-<p>所以…为什么要再次花500美金去重认证呢？</p>
-<p>所以还是让它湮灭在历史的舞台中，我再也不想去背那种无聊的题库，我的时间和精力应该投入其他更有意义的地方。</p>
-<h1 id="如果你刚开始怎么办">如果你刚开始怎么办？</h1>
-<p>对年轻的入行网络工程师如何选择呢，是否应该考取CCIE吗？</p>
-<p>这是一个信息爆炸的时代，有太多太多的领域知识值得学习，但人的时间和精力有限,你最好学习你感兴趣的东西。市场正在发生变化，云计算，SD-WAN，编程，DevOps，Linux等各种技能，您将获得更好工作的选择。</p>
-<p>学习网络的基础知识。一定要追求CCNP级别的相应的技能，一定要要求自己有一个坚实的网络基础。但随后追求你的技能的提升，学习相关交叉能力学科能力。</p>
-<p>纯粹网络工程师的工作需求正在萎缩，但在很长时间内仍不会消亡。如果你已经入坑网工，并且你每天很高兴的工作，坚持下去把。</p>
-<h1 id="这是一个新的开始">这是一个新的开始</h1>
-<p>最后，通过文章记录自己的第一篇感悟，不要在<strong>9102</strong>年开始这条CCIE的道路，世界已经变化！</p>
-<p>引用英国作家查尔斯·狄更斯在《双城记》中的话作为结尾:</p>
-<p><code>这是一个最好的时代，也是一个最坏的时代；这是一个智慧的年代，这是一个愚蠢的年代；这是一个信任的时期，这是一个怀疑的时期。这是一个光明的季节，这是一个黑暗的季节；这是希望之春，这是失望之冬；人们面前应有尽有，人们面前一无所有；人们正踏上天堂之路，人们正走向地狱之门</code>。</p>
-
+                <h1 id="一-安装使用gitbook">一、安装使用gitbook</h1>
+<p>1、安装gitbook</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gitbook-cli -g</span><br></pre></td></tr></table></figure>
+<p>2、初始化项目(新建文件)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitbook init</span><br></pre></td></tr></table></figure>
+<p>3、启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitbook serve</span><br><span class="line">// 直接访问localhost:4000</span><br></pre></td></tr></table></figure>
+<h1 id="二-文件介绍">二、文件介绍</h1>
+<p>1、使用gitbook <a href="http://xn--initREADME-4q2picy0mlok45bvnf3n6eibn813enqvc.xn--mdSUMMARY-rw9o.md" target="_blank" rel="noopener">init后会自动生成两个文件README.md和SUMMARY.md</a></p>
+<p>README.md使用过git的都知道这个文件<br>
+SUMMARY.md就是自己要写文章章节目录</p>
+<p>2、 简单看下我最基本的目录<br>
+<img src="15721570777951.jpg" alt=""></p>
+<p>3、在浏览器中运行的结果</p>
+<p><img src="15721570967302.jpg" alt=""></p>
+<h1 id="三-通过配置文件来配置">三、通过配置文件来配置</h1>
+<p>1、在书籍下面都可以创建一个book.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"title"</span>: <span class="string">"标题"</span>,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">"作者"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"简单描素"</span>,</span><br><span class="line">  <span class="attr">"language"</span>: <span class="string">"zh-hans"</span>, </span><br><span class="line">  <span class="attr">"gitbook"</span>: <span class="string">"3.2.3"</span>, </span><br><span class="line">  <span class="attr">"styles"</span>: &#123;</span><br><span class="line">    <span class="attr">"website"</span>: <span class="string">"./styles/website.css"</span> </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"structure"</span>: &#123;</span><br><span class="line">    <span class="attr">"readme"</span>: <span class="string">"README.md"</span> </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"links"</span>: &#123;</span><br><span class="line">    <span class="attr">"sidebar"</span>: &#123;</span><br><span class="line">      <span class="attr">"我的博客"</span>: <span class="string">"https://blog.csdn.net/kuangshp128"</span> </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"plugins"</span>: [ </span><br><span class="line">    <span class="string">"-sharing"</span>,</span><br><span class="line">    <span class="string">"splitter"</span>,</span><br><span class="line">    <span class="string">"expandable-chapters-small"</span>,</span><br><span class="line">    <span class="string">"anchors"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"github"</span>,</span><br><span class="line">    <span class="string">"github-buttons"</span>,</span><br><span class="line">    <span class="string">"donate"</span>,</span><br><span class="line">    <span class="string">"sharing-plus"</span>,</span><br><span class="line">    <span class="string">"anchor-navigation-ex"</span>,</span><br><span class="line">    <span class="string">"favicon"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"pluginsConfig"</span>: &#123;</span><br><span class="line">    <span class="attr">"github"</span>: &#123;</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"https://github.com/kuangshp/"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"github-buttons"</span>: &#123;</span><br><span class="line">      <span class="attr">"buttons"</span>: [&#123;</span><br><span class="line">        <span class="attr">"user"</span>: <span class="string">"kuangshp"</span>,</span><br><span class="line">        <span class="attr">"repo"</span>: <span class="string">"mysql"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"star"</span>,</span><br><span class="line">        <span class="attr">"size"</span>: <span class="string">"small"</span>,</span><br><span class="line">        <span class="attr">"count"</span>: <span class="literal">true</span></span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"donate"</span>: &#123;</span><br><span class="line">      <span class="attr">"alipay"</span>: <span class="string">"./source/images/donate.png"</span>,</span><br><span class="line">      <span class="attr">"title"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"button"</span>: <span class="string">"赞赏"</span>,</span><br><span class="line">      <span class="attr">"alipayText"</span>: <span class="string">" "</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"sharing"</span>: &#123;</span><br><span class="line">      <span class="attr">"douban"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"facebook"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"google"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"hatenaBookmark"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"instapaper"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"line"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"linkedin"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"messenger"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"pocket"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"qq"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"qzone"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"stumbleupon"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"twitter"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"viber"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"vk"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"weibo"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"whatsapp"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"all"</span>: [</span><br><span class="line">        <span class="string">"google"</span>, <span class="string">"facebook"</span>, <span class="string">"weibo"</span>, <span class="string">"twitter"</span>,</span><br><span class="line">        <span class="string">"qq"</span>, <span class="string">"qzone"</span>, <span class="string">"linkedin"</span>, <span class="string">"pocket"</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"anchor-navigation-ex"</span>: &#123;</span><br><span class="line">      <span class="attr">"showLevel"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"favicon"</span>: &#123;</span><br><span class="line">      <span class="attr">"shortcut"</span>: <span class="string">"./source/images/favicon.jpg"</span>,</span><br><span class="line">      <span class="attr">"bookmark"</span>: <span class="string">"./source/images/favicon.jpg"</span>,</span><br><span class="line">      <span class="attr">"appleTouch"</span>: <span class="string">"./source/images/apple-touch-icon.jpg"</span>,</span><br><span class="line">      <span class="attr">"appleTouchMore"</span>: &#123;</span><br><span class="line">        <span class="attr">"120x120"</span>: <span class="string">"./source/images/apple-touch-icon.jpg"</span>,</span><br><span class="line">        <span class="attr">"180x180"</span>: <span class="string">"./source/images/apple-touch-icon.jpg"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、关于book.json字段的介绍</p>
+<ul>
+<li>title: 书籍标题</li>
+<li>author:书籍作者</li>
+<li>description: 描述</li>
+<li>language:语言</li>
+<li>gitbook:gitbook的版本</li>
+<li>styles:自定义样式</li>
+<li>structure: readme文件的位置</li>
+<li>links:链接跳转</li>
+<li>plugins:插件</li>
+<li>pluginsConfig:插件的配置</li>
+</ul>
+<p>3、如果配置了插件就要安装使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitbook install ./</span><br></pre></td></tr></table></figure>
                 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/使用GitBook进行知识整理/" data-toggle="tooltip" data-placement="top" title="使用GitBook进行知识整理">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/个人/CCIE-是终点还是起点/" data-toggle="tooltip" data-placement="top" title="CCIE-是终点还是起点?">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -298,7 +307,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#我应该重认证吗"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6211;&#x5E94;&#x8BE5;&#x91CD;&#x8BA4;&#x8BC1;&#x5417;&#xFF1F;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#如果你刚开始怎么办"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x5982;&#x679C;&#x4F60;&#x521A;&#x5F00;&#x59CB;&#x600E;&#x4E48;&#x529E;&#xFF1F;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#这是一个新的开始"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5F00;&#x59CB;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#一-安装使用gitbook"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x4E00;&#x3001;&#x5B89;&#x88C5;&#x4F7F;&#x7528;gitbook</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#二-文件介绍"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4E8C;&#x3001;&#x6587;&#x4EF6;&#x4ECB;&#x7ECD;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#三-通过配置文件来配置"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x4E09;&#x3001;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6765;&#x914D;&#x7F6E;</span></a></li></ol>
         
         </div>
       </aside>
@@ -318,8 +327,6 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#随笔" title="随笔">随笔</a>
-                        
                     </div>
                 </section>
                 
