@@ -244,6 +244,12 @@
 </ul>
 <p>3、如果配置了插件就要安装使用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitbook install ./</span><br></pre></td></tr></table></figure>
+<h1 id="gitbook书籍发布">Gitbook书籍发布</h1>
+<h2 id="gitbook书籍生成">gitbook书籍生成</h2>
+<p>gitbook生成书籍有两种方式，一种是使用<code>gitbook serve</code>命令生成本地预览，另外一种方式是使用<code>gitbook build</code>来生成相应页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gitbook serve //本地会生成_book目录的文件夹</span><br><span class="line">gitbook build</span><br><span class="line">gitbook serve ./ docs   //把本地预览生成文件存储在 docs目录下</span><br><span class="line">gitbook build ./ docs</span><br></pre></td></tr></table></figure>
+<h2 id="git-push上传至github">Git push上传至github</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m &quot;some update&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
                 
 
                 <hr>
@@ -312,7 +318,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#一-安装使用gitbook"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x4E00;&#x3001;&#x5B89;&#x88C5;&#x4F7F;&#x7528;gitbook</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#二-文件介绍"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4E8C;&#x3001;&#x6587;&#x4EF6;&#x4ECB;&#x7ECD;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#三-通过配置文件来配置"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x4E09;&#x3001;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6765;&#x914D;&#x7F6E;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#一-安装使用gitbook"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x4E00;&#x3001;&#x5B89;&#x88C5;&#x4F7F;&#x7528;gitbook</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#二-文件介绍"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4E8C;&#x3001;&#x6587;&#x4EF6;&#x4ECB;&#x7ECD;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#三-通过配置文件来配置"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x4E09;&#x3001;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6765;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#gitbook书籍发布"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Gitbook&#x4E66;&#x7C4D;&#x53D1;&#x5E03;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#gitbook书籍生成"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">gitbook&#x4E66;&#x7C4D;&#x751F;&#x6210;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#git-push上传至github"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">Git push&#x4E0A;&#x4F20;&#x81F3;github</span></a></li></ol></li></ol>
         
         </div>
       </aside>
