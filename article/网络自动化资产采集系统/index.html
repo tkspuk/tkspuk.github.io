@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          locus | Blog
+          网络自动化资产采集系统 - locus | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.byto.top/archives/2019/">
+    <link rel="canonical" href="http://www.byto.top/article/网络自动化资产采集系统/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/archives-widget.jpg')
-            /*page*/
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
         
     }
     
@@ -85,10 +85,16 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>locus</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">瞎写写的自留地</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>网络自动化资产采集系统</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by locus on
+                            2019-11-02
+                        </span>
                     </div>
                 
 
@@ -191,245 +197,224 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 archive">
-            <!-- 归档列表 -->
-            
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <h1 id="网络自动化信息采集系统ni">网络自动化信息采集系统（NI）</h1>
+<h1 id="产品目标">产品目标</h1>
+<p>通过分析现网已经备份的配置信息，把相应的数据导入至**网络基础数据中(NIDB)**中，</p>
+<h1 id="实现思路">实现思路</h1>
+<h2 id="分析配置格式化数据">分析配置格式化数据</h2>
+<p>可选用以下两个开源模块来尝试</p>
+<ul>
+<li>
+<p>ttp（推荐）<br>
+<code>TTP是用于使用模板解析半结构化文本数据的Python库。</code><br>
+<a href="https://github.com/dmulyalin/ttp" target="_blank" rel="noopener">https://github.com/dmulyalin/ttp</a></p>
+</li>
+<li>
+<p>netcopa                                                                                                                        <code>一种引擎，它实现了基于模板的状态机，用于解析半格式的文本并将其作为结构化数据存储在yaml中。</code><br>
+<a href="https://github.com/cidrblock/netcopa" target="_blank" rel="noopener">https://github.com/cidrblock/netcopa</a></p>
+</li>
+<li>
+<p>ciscoconfparse(思科风格解析)<br>
+<a href="http://www.pennington.net/" target="_blank" rel="noopener">http://www.pennington.net/</a></p>
+</li>
+</ul>
+<h2 id="导入数据到netdb中">导入数据到netdb中</h2>
+<ul>
+<li>
+<p>netbox-netprod-importer（推荐）<br>
+<a href="https://github.com/aruhier/netbox-netprod-importer" target="_blank" rel="noopener">https://github.com/aruhier/netbox-netprod-importer</a></p>
+</li>
+<li>
+<p>netbox_import（参考思路，主要导入ip与接口）<br>
+<a href="https://github.com/Gelob/netbox_import" target="_blank" rel="noopener">https://github.com/Gelob/netbox_import</a></p>
+</li>
+</ul>
+<h2 id="根据netdb数据生成配置">根据Netdb数据生成配置</h2>
+<ul>
+<li>netbox_automation<br>
+<a href="https://github.com/ksator/netbox_automation" target="_blank" rel="noopener">https://github.com/ksator/netbox_automation</a></li>
+</ul>
+<h1 id="其他">其他</h1>
+<p>netbox-pyswagger<br>
+Netbox的Python Swagger客户端<br>
+<a href="https://github.com/jeremyschulman/netbox-pyswagger" target="_blank" rel="noopener">https://github.com/jeremyschulman/netbox-pyswagger</a></p>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-                <ul>
                 
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-02
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/网络自动化资产采集系统/" style="color: #0085a1">
-                        <span>
-                            网络自动化资产采集系统
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    10-27
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/使用GitBook进行知识整理/" style="color: #0085a1">
-                        <span>
-                            使用GitBook进行知识整理
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    09-14
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/个人/CCIE-是终点还是起点/" style="color: #0085a1">
-                        <span>
-                            CCIE-是终点还是起点?
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/article/使用GitBook进行知识整理/" data-toggle="tooltip" data-placement="top" title="使用GitBook进行知识整理">Next Post &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
-
-
-        </div>
-    </div>
-</div>
-
-<style type="text/css">
-
-   @media (min-width: 992px) {
-   .archive {
-       margin-left: 8.33333333%;
-       padding-right: 26.333333%;
-   }
-}
-</style>
-
-<style type="text/css">
-   @media (min-width: 1200px){
-   .archive {
-   margin-left: 16.66666667%;
-   padding-right: 16.666667%;
-   }
-}
-</style>
-
 
                 <br>
 
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
                 <!-- require APlayer -->
                 
 
-                <!-- 如果开启评论功能 -->
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#网络自动化信息采集系统ni"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x7F51;&#x7EDC;&#x81EA;&#x52A8;&#x5316;&#x4FE1;&#x606F;&#x91C7;&#x96C6;&#x7CFB;&#x7EDF;&#xFF08;NI&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#产品目标"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4EA7;&#x54C1;&#x76EE;&#x6807;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#实现思路"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x5B9E;&#x73B0;&#x601D;&#x8DEF;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#分析配置格式化数据"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">&#x5206;&#x6790;&#x914D;&#x7F6E;&#x683C;&#x5F0F;&#x5316;&#x6570;&#x636E;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#导入数据到netdb中"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">&#x5BFC;&#x5165;&#x6570;&#x636E;&#x5230;netdb&#x4E2D;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#根据netdb数据生成配置"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">&#x6839;&#x636E;Netdb&#x6570;&#x636E;&#x751F;&#x6210;&#x914D;&#x7F6E;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#其他"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x5176;&#x4ED6;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://byto.top/mybook/" target="_blank">轨迹的Gitbook书籍</a></li>
+                    
+                </ul>
                 
             </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Featured Tags -->
-
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#随笔" title="随笔" rel="1">随笔</a>
-            
-        
+        </div>
     </div>
-</section>
+</article>
 
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
 
-        
-            <img id = "avatar_pic" src="/img/avatar/ironman.png" />
-        
 
-        
-            <p>Stay hungry,Stay foolish</p>
-        
 
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
 
-            
 
-            
 
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/tkspuk">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
-    </div>
-</section>
 
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/article/网络自动化资产采集系统/">网络自动化资产采集系统</a>
-        </li>
-      
-        <li>
-          <a href="/article/使用GitBook进行知识整理/">使用GitBook进行知识整理</a>
-        </li>
-      
-        <li>
-          <a href="/个人/CCIE-是终点还是起点/">CCIE-是终点还是起点?</a>
-        </li>
-      
-    </ul>
-  </div>
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-        <hr>
-    
-        <!-- Friends Blog -->
 
-<h5>FRIENDS</h5>
-<ul class="list-inline">
-
-    
-        <li><a href="https://byto.top/mybook/" target="_blank">轨迹的Gitbook书籍</a></li>
-    
-</ul>
-
-        <hr>
-    
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-
-        <hr>
-    
-        <!-- Categories -->
-
-    <h5>categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人/">个人</a><span class="category-list-count">1</span></li></ul>
-    </div>
-
-        <hr>
-    
-</div>
-
-        
-    </div>
-</div>
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
 
 
     <!-- Footer -->
