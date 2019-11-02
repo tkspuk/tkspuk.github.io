@@ -210,11 +210,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="网络自动化信息采集系统ni">网络自动化信息采集系统（NI）</h1>
-<h1 id="产品目标">产品目标</h1>
-<p>通过分析现网已经备份的配置信息，把相应的数据导入至**网络基础数据中(NIDB)**中，</p>
-<h1 id="实现思路">实现思路</h1>
-<h2 id="分析配置格式化数据">分析配置格式化数据</h2>
+                <h1 id="一产品目标">一.产品目标</h1>
+<p>通过分析现网已经备份的网络设备配置信息，比如通过Oxidized，分析与格式化对应配置，把相应的数据导入至**网络基础数据中(NIDB)**中，</p>
+<h1 id="二实现思路">二.实现思路</h1>
+<h2 id="21分析配置格式化数据">2.1分析配置格式化数据</h2>
 <p>可选用以下两个开源模块来尝试</p>
 <ul>
 <li>
@@ -223,7 +222,8 @@
 <a href="https://github.com/dmulyalin/ttp" target="_blank" rel="noopener">https://github.com/dmulyalin/ttp</a></p>
 </li>
 <li>
-<p>netcopa                                                                                                                        <code>一种引擎，它实现了基于模板的状态机，用于解析半格式的文本并将其作为结构化数据存储在yaml中。</code><br>
+<p>netcopa<br>
+<code>一种引擎，它实现了基于模板的状态机，用于解析半格式的文本并将其作为结构化数据存储在yaml中。</code><br>
 <a href="https://github.com/cidrblock/netcopa" target="_blank" rel="noopener">https://github.com/cidrblock/netcopa</a></p>
 </li>
 <li>
@@ -231,7 +231,7 @@
 <a href="http://www.pennington.net/" target="_blank" rel="noopener">http://www.pennington.net/</a></p>
 </li>
 </ul>
-<h2 id="导入数据到netdb中">导入数据到netdb中</h2>
+<h2 id="22导入数据到netdb中">2.2导入数据到netdb中</h2>
 <ul>
 <li>
 <p>netbox-netprod-importer（推荐）<br>
@@ -242,12 +242,12 @@
 <a href="https://github.com/Gelob/netbox_import" target="_blank" rel="noopener">https://github.com/Gelob/netbox_import</a></p>
 </li>
 </ul>
-<h2 id="根据netdb数据生成配置">根据Netdb数据生成配置</h2>
+<h2 id="23根据netdb数据生成配置">2.3根据Netdb数据生成配置</h2>
 <ul>
 <li>netbox_automation<br>
 <a href="https://github.com/ksator/netbox_automation" target="_blank" rel="noopener">https://github.com/ksator/netbox_automation</a></li>
 </ul>
-<h1 id="其他">其他</h1>
+<h1 id="三其他">三.其他</h1>
 <p>netbox-pyswagger<br>
 Netbox的Python Swagger客户端<br>
 <a href="https://github.com/jeremyschulman/netbox-pyswagger" target="_blank" rel="noopener">https://github.com/jeremyschulman/netbox-pyswagger</a></p>
@@ -316,7 +316,7 @@ Netbox的Python Swagger客户端<br>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#网络自动化信息采集系统ni"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x7F51;&#x7EDC;&#x81EA;&#x52A8;&#x5316;&#x4FE1;&#x606F;&#x91C7;&#x96C6;&#x7CFB;&#x7EDF;&#xFF08;NI&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#产品目标"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4EA7;&#x54C1;&#x76EE;&#x6807;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#实现思路"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x5B9E;&#x73B0;&#x601D;&#x8DEF;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#分析配置格式化数据"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">&#x5206;&#x6790;&#x914D;&#x7F6E;&#x683C;&#x5F0F;&#x5316;&#x6570;&#x636E;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#导入数据到netdb中"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">&#x5BFC;&#x5165;&#x6570;&#x636E;&#x5230;netdb&#x4E2D;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#根据netdb数据生成配置"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">&#x6839;&#x636E;Netdb&#x6570;&#x636E;&#x751F;&#x6210;&#x914D;&#x7F6E;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#其他"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x5176;&#x4ED6;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#一产品目标"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x4E00;.&#x4EA7;&#x54C1;&#x76EE;&#x6807;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#二实现思路"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4E8C;.&#x5B9E;&#x73B0;&#x601D;&#x8DEF;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#21分析配置格式化数据"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.1&#x5206;&#x6790;&#x914D;&#x7F6E;&#x683C;&#x5F0F;&#x5316;&#x6570;&#x636E;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#22导入数据到netdb中"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.2&#x5BFC;&#x5165;&#x6570;&#x636E;&#x5230;netdb&#x4E2D;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#23根据netdb数据生成配置"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">2.3&#x6839;&#x636E;Netdb&#x6570;&#x636E;&#x751F;&#x6210;&#x914D;&#x7F6E;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#三其他"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x4E09;.&#x5176;&#x4ED6;</span></a></li></ol>
         
         </div>
       </aside>
