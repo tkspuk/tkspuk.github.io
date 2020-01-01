@@ -2,22 +2,22 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <sitemap>
-        <loc>http://www.byto.top/post-sitemap.xml</loc>
+        <loc>http://byto.top/post-sitemap.xml</loc>
         <lastmod>2019-11-18T16:28:32.815Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://www.byto.top/page-sitemap.xml</loc>
+        <loc>http://byto.top/page-sitemap.xml</loc>
         <lastmod>2019-08-27T16:05:04.160Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://www.byto.top/category-sitemap.xml</loc>
+        <loc>http://byto.top/category-sitemap.xml</loc>
         <lastmod>2019-11-18T16:28:32.815Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://www.byto.top/tag-sitemap.xml</loc>
+        <loc>http://byto.top/tag-sitemap.xml</loc>
         <lastmod>2019-11-18T16:28:32.815Z</lastmod>
     </sitemap>
 
