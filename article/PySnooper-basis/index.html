@@ -144,13 +144,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -158,11 +151,18 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
                         
                     
                     
@@ -236,8 +236,12 @@
 <p>使用也依然简单，我们这里写个简单的运算斐波那契数列的函数进行测试：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function</span><br><span class="line">import pysnooper</span><br><span class="line"></span><br><span class="line">@pysnooper.snoop()</span><br><span class="line">def fib(n):</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    for i in xrange(n+1):</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        return a</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    for n in xrange(3):</span><br><span class="line">       print(fib(n), end=&apos; &apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 <p>可以看到PySnooper输出了函数每条语句的运行时间（方便做性能优化测试）、变量的初始化赋值和修改后的值、行号、代码都进行了输出。最后输出的则是程序运行的结果。</p>
-<h2 id="自定义参数">自定义参数</h2>
-<p>PySnooper会输出到stderr。如果想要输出到文件，可以在命令行使用2&gt; /my/log/file.log重定向到文件。也可以给装饰器增加一个参数：</p>
+<p>或者，如果您不想追踪整个函数，则可以将相关部分包装在一个with块中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">导入 pysnooper</span><br><span class="line"> 随机导入</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span>  <span class="title">foo</span>（）：对于范围（10）中的<span class="title">i</span> ， </span></span><br><span class="line">    lst = []</span><br><span class="line">     ： </span><br><span class="line">        lst.append(random.randrange(<span class="number">1</span>, <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> pysnooper.snoop():</span><br><span class="line">        lower = min(lst)</span><br><span class="line">        upper = max(lst)</span><br><span class="line">        mid = (lower + upper) / <span class="number">2</span></span><br><span class="line">        print(lower, mid, upper)</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<p>输出类似：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">New var:....... i = 9</span><br><span class="line">New var:....... lst = [681, 267, 74, 832, 284, 678, ...]</span><br><span class="line">09:37:35.881721 line        10         lower = min(lst)</span><br><span class="line">New var:....... lower = 74</span><br><span class="line">09:37:35.882137 line        11         upper = max(lst)</span><br><span class="line">New var:....... upper = 832</span><br><span class="line">09:37:35.882304 line        12         mid = (lower + upper) / 2</span><br><span class="line">74 453.0 832</span><br><span class="line">New var:....... mid = 453.0</span><br><span class="line">09:37:35.882486 line        13         print(lower, mid, upper)</span><br></pre></td></tr></table></figure>
+<h2 id="相关参数">相关参数</h2>
+<p><strong>将输出重定向到文件</strong>，PySnooper会输出到stderr。如果想要输出到文件，可以在命令行使用2&gt; /my/log/file.log重定向到文件。也可以给装饰器增加一个参数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@pysnooper.snoop(&apos;/my/log/file.log&apos;)</span><br></pre></td></tr></table></figure>
 <p>如果想检查一些非局部变量，也可以使用参数variables：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@pysnooper.snoop(variables=(&apos;foo.bar&apos;, &apos;self.whatever&apos;))</span><br></pre></td></tr></table></figure>
@@ -245,6 +249,35 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@pysnooper.snoop(depth=2)</span><br></pre></td></tr></table></figure>
 <p>如果stderr和stdout一起输出可能会看不太清楚，可以通过prefix参数给PySnooper的输出结果添加一个前缀，比如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@pysnooper.snoop(prefix=&apos;ZZZ &apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="高级用法">高级用法</h2>
+<p>使用watch_explode扩展值，以查看他们的所有列表/字典的属性或项目：</p>
+<pre><code>@ pysnooper.snoop（watch_explode =（' foo '，' self '））
+</code></pre>
+<p>watch_explode会自动猜测如何根据其类扩展传递给它的表达式。通过使用以下类别之一，您可以更加具体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import pysnooper</span><br><span class="line"></span><br><span class="line">@pysnooper.snoop(watch=(</span><br><span class="line">    pysnooper.Attrs(&apos;x&apos;),    # attributes</span><br><span class="line">    pysnooper.Keys(&apos;y&apos;),     # mapping (e.g. dict) items</span><br><span class="line">    pysnooper.Indices(&apos;z&apos;),  # sequence (e.g. list/tuple) items</span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+<p>使用exclude参数排除特定的键/属性/索引，例如Attrs(‘x’, exclude=(’_foo’, ‘_bar’))。</p>
+<p>在其后添加一个切片，Indices以仅查看该切片中的值，例如Indices(‘z’)[-3:]。</p>
+<p>$ export PYSNOOPER_DISABLED = 1 ＃这使得PySnooper不做任何监听<br>
+这将输出如下行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Modified var:.. foo[2] = &apos;whatever&apos;</span><br><span class="line">New var:....... self.baz = 8</span><br></pre></td></tr></table></figure>
+<p>以前缀开头所有侦听线，以便为它们轻松grep：</p>
+<pre><code>@ pysnooper.snoop（前缀= ' ZZZ '）
+</code></pre>
+<p>删除所有与机器相关的数据（路径，时间戳，内存地址），以便与其他跟踪轻松进行比较：</p>
+<pre><code>@ pysnooper.snoop（normalize = True）
+</code></pre>
+<p>在多线程应用程序上，确定在输出中监听到哪个线程：</p>
+<pre><code>@ pysnooper.snoop（thread_info = True）
+</code></pre>
+<p>PySnooper支持装饰生成器。</p>
+<p>如果您使用来修饰一个类snoop，它将自动将修饰符应用于所有方法。（不包括属性和其他特殊情况。）</p>
+<p>您还可以自定义对象的代表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def large(l):</span><br><span class="line">    return isinstance(l, list) and len(l) &gt; 5</span><br><span class="line"></span><br><span class="line">def print_list_size(l):</span><br><span class="line">    return &apos;list(size=&#123;&#125;)&apos;.format(len(l))</span><br><span class="line"></span><br><span class="line">def print_ndarray(a):</span><br><span class="line">    return &apos;ndarray(shape=&#123;&#125;, dtype=&#123;&#125;)&apos;.format(a.shape, a.dtype)</span><br><span class="line"></span><br><span class="line">@pysnooper.snoop(custom_repr=((large, print_list_size), (numpy.ndarray, print_ndarray)))</span><br><span class="line">def sum_to_x(x):</span><br><span class="line">    l = list(range(x))</span><br><span class="line">    a = numpy.zeros((10,10))</span><br><span class="line">    return sum(l)</span><br><span class="line"></span><br><span class="line">sum_to_x(10000)</span><br></pre></td></tr></table></figure>
+<p>您将获得l = list(size=10000)该列表和a = ndarray(shape=(10, 10), dtype=float64)ndarray。的custom_repr顺序匹配，如果一个条件匹配，将不检查其他条件。</p>
+<p>默认情况下，变量和异常被截断为100个字符。您可以自定义：</p>
+<pre><code>@ pysnooper.snoop（max_variable_length = 200）
+</code></pre>
+<p>您也可以使用max_variable_length=None它从不截断它们。</p>
 
                 
 
@@ -310,7 +343,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#pysnooper介绍"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">PySnooper&#x4ECB;&#x7ECD;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#使用方法"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#自定义参数"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x81EA;&#x5B9A;&#x4E49;&#x53C2;&#x6570;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#pysnooper介绍"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">PySnooper&#x4ECB;&#x7ECD;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#使用方法"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#相关参数"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x76F8;&#x5173;&#x53C2;&#x6570;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#高级用法"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;</span></a></li></ol>
         
         </div>
       </aside>
