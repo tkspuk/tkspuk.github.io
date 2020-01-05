@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          neo4j-basis - locus | Blog
+          neo4j入门介绍 - locus | Blog
         
     </title>
 
@@ -93,7 +93,7 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>neo4j-basis</h1>
+                        <h1>neo4j入门介绍</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by locus on
@@ -144,6 +144,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -151,18 +158,11 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                    
-
-                        
-                        <li>
                             <a href="/tags/">Tags</a>
                         </li>
+                        
+                    
+
                         
                     
                     
@@ -222,9 +222,15 @@
 <h2 id="neo4j安装及实践">Neo4j安装及实践</h2>
 <p>为了搭建环境，用Docker来运行一个包含Neo4j的容器。</p>
 <p>从Docker Hub上pull一个Neo4j的镜像</p>
-<figure class="highlight docker"><figcaption><span>pull neo4j</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">启动一个Neo4j的容器, 需要在你的Home目录下建立一个`/neo4j/data`文件夹</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```docker <span class="keyword">run</span> --publish=7474:7474 --publish=7687:7687 --volume=$HOME/neo4j/data:/data neo4j</span><br></pre></td></tr></table></figure>
-<p>在浏览器中访问loalhost:7474可以看到如下的UI界面，输入默认用户名和密码<strong>neo4j</strong>即可连接到neo4j数据库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 简单的命令示例：</span><br><span class="line">CREATE (embiid: PLAYER &#123;name: &apos;Embiid&apos;, height: &apos;2.13m&apos;, nationality: &apos;Cameroon&apos;&#125;) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">MATCH (embiid:PLAYER&#123;name:&apos;Embiid&apos;&#125;)</span><br><span class="line">MERGE (embiid)-[:LIKES&#123;since:&apos;2014&apos;&#125;]-&gt;(Rihanna: SINGER&#123;name:&apos;Rihanna&apos;, dob:&apos;1988/2/20&apos;,bloodType:&apos;O&apos;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull neo4j</span><br></pre></td></tr></table></figure>
+<p>启动一个Neo4j的容器</p>
+<figure class="highlight docker"><figcaption><span>run --publish</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">在浏览器中访问loalhost:<span class="number">7474</span>可以看到如下的UI界面，输入默认用户名和密码**neo4j**即可连接到neo4j数据库。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 简单的命令示例：</span></span><br></pre></td></tr></table></figure>
+<p>CREATE (embiid: PLAYER {name: ‘Embiid’, height: ‘2.13m’, nationality: ‘Cameroon’})</p>
+<p>MATCH (embiid:PLAYER{name:‘Embiid’})<br>
+MERGE (embiid)-[:LIKES{since:‘2014’}]-&gt;(Rihanna: SINGER{name:‘Rihanna’, dob:‘1988/2/20’,bloodType:‘O’})</p>
+<pre><code>
+
+</code></pre>
 
                 
 
