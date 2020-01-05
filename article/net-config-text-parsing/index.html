@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          About - locus | Blog
+          网络自动化配置文本解析 - locus | Blog
         
     </title>
 
-    <link rel="canonical" href="http://byto.top/about/">
+    <link rel="canonical" href="http://byto.top/article/net-config-text-parsing/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/about.jpg')
-            /*page*/
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
         
     }
     
@@ -89,10 +89,16 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>About</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">走在成为极客的路上</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>网络自动化配置文本解析</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by locus on
+                            2020-01-05
+                        </span>
                     </div>
                 
 
@@ -198,215 +204,212 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <h3 id="一句话">一句话</h3>
-<blockquote>
-<p>Just do it !    (别想多了其实就是：我只是个搞 IT的！^—^)</p>
-</blockquote>
-<h3 id="关于我">关于我</h3>
-<blockquote>
-<p>网络小民工一枚，</p>
-<p>一直十年的IT男，曾混在运营商、外企、互联网企业~~平时还算正常，偶尔抽抽风丢丢包~！</p>
-</blockquote>
-<h3 id="兴趣方向">兴趣方向</h3>
-<blockquote>
-<p>网络与基础设施、自动化运维技术研究。</p>
-</blockquote>
-<h3 id="参与社区">参与社区</h3>
-<blockquote>
-<p>CSDN博客: 暂无</p>
-<p>Github:<a href="https://github.com/tkspuk" target="_blank" rel="noopener">https://github.com/tkspuk</a></p>
-<p>阿里云栖社区:暂无</p>
-<p>DockOne社区: 暂无</p>
-</blockquote>
-<h3 id="联系我">联系我</h3>
-<blockquote>
-<p>Email: locus@byto.toop</p>
-</blockquote>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
+                <h2 id="配置解析背景">配置解析背景</h2>
+<p>无论你是否同意，网络领域持续很多年并没有通用管理方式，各网络厂商依然通过命令行（CLI），网络的整个业务部署依然通过传统的CLI方式，之前看过一篇文章，对于Cisco的cli，传统的ios命令与30年前（1989年）几乎差不太多。<br>
+没有API，接口不一致，配置和运行时CLI格式受限于各厂商或各产品类型。这意味着，无论你如何讨厌传统的ssh cli抓取和正则表达式，但它仍然是最有效的方式。在本文中，我将深入探讨当前形势下的一些解析工具，这些工具将帮助您以最少的正则表达式来实现网络自动化目标，而正则表达式的数量又将导致工作量最小。</p>
+<p>在深入研究之前确定的一点是，关于配置解析有两个不同的方向。</p>
+<blockquote>
+<p>首先，从半结构化文本输出中提取结构化数据。这一般用于自动化资产扫描、配置审计、自动化拓扑等分析与存储的作用。</p>
+</blockquote>
+<blockquote>
+<p>其次，获取结构化数据并将该数据馈送到模板引擎，以便从中生成一些信息（考虑使用Jinja2模板生成配置）。这一般用于自动化配置下发，配置生成等。</p>
+</blockquote>
+<p>这篇文章正在讨论前者,既从配置中提取结构化的数据。</p>
+<h2 id="template-text-parserttp">Template Text Parser（TTP）</h2>
+<p><a href="https://github.com/dmulyalin/ttp" target="_blank" rel="noopener">模板文本解析器（ttp）</a>是最新的基于Python的解析模块，我非常喜欢它。它简单易用，但如果您需要解析更复杂的内容，则需要深入进行一些实验与认真看一下文档。</p>
+<p>如果您熟悉Jinja2模板语言，那么您会喜欢ttp。将其视为反向Jinja2模板（在技术上与Jinja2不相似，但在语法上相似）。这是从文档的一个简单示例，以解析来自思科设备的接口数据。</p>
+<p>总的来说，我真的很喜欢Template Text Parser。我认为这是对网络自动化工具箱的一个受欢迎的补充。我可以看到使用ttp从现有配置中提取数据并构建一个数据结构，该数据结构随后可以用作使用Jinja2模板生成配置的输入。</p>
+<h2 id="ntc-templates">NTC Templates</h2>
+<p>Network To Code开发了一个相当强大的<a href="https://github.com/google/textfsm" target="_blank" rel="noopener">TextFSM</a>解析器库，称为<a href="https://github.com/networktocode/ntc-templates" target="_blank" rel="noopener">ntc-templates</a>。这些模板可以直接在您的代码中使用，也可以从Netmiko等库中使用。</p>
+<h2 id="netmiko的ntc模板功能">Netmiko的NTC模板功能</h2>
+<p>通过ntc-Template与netmiko进行集成，可以灵活的编写TextFSM的模块</p>
+<h2 id="napalm">NAPALM</h2>
+<p>NAPALM是一个库，用于为网络提供一致的，与供应商无关的API。它支持许多不同的设备类型，并具有与交互和管理实时网络有关的许多功能。但是，由于这是一篇有关解析的重点文章，所以我们只关注NAPALM的getters。这些get方法以标准格式提取运行时信息。示例getters是get_arp_table，get_facts等等。这是所有受支持的列表getters。</p>
+<h2 id="未来会如何">未来会如何</h2>
+<p>我希望少正则表达式RE。总而言之，文本解析（和正则表达式）是必不可少的，但是有很多很棒的工具可用。您会注意到，上面的大多数示例完全不需要使用正则表达式。利用正确的工具进行下一步工作，我们所有人都可以专注于我们在这里要做的事情，管理网络，希望这篇文章可以作为那里可用工具及其使用方法的相当完整的快照。</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/PySnooper-basis/" data-toggle="tooltip" data-placement="top" title="理解Python的神器PySnooper调试程序">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/neo4j-basis/" data-toggle="tooltip" data-placement="top" title="neo4j入门介绍">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
                 <br>
 
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
                 <!-- require APlayer -->
                 
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
-                    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+                <!-- duoshuo Share start -->
                 
-                    <div class="aplayer"
-                        data-id="2423410161"
-                        data-server="netease"
-                        data-type="playlist"
-                        data-fixed="false" >
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#配置解析背景"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x89E3;&#x6790;&#x80CC;&#x666F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#template-text-parserttp"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Template Text Parser&#xFF08;TTP&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ntc-templates"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">NTC Templates</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#netmiko的ntc模板功能"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Netmiko&#x7684;NTC&#x6A21;&#x677F;&#x529F;&#x80FD;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#napalm"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">NAPALM</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#未来会如何"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x672A;&#x6765;&#x4F1A;&#x5982;&#x4F55;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
                     </div>
+                </section>
                 
 
-                <!-- 如果开启评论功能 -->
+                <!-- Friends Blog -->
                 
-                    <hr>
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
 
                     
-
+                        <li><a href="https://byto.top/tutorial_gitbook/" target="_blank">gitbook学习笔记</a></li>
                     
-
+                        <li><a href="https://byto.top/tutorial_python/" target="_blank">Python学习笔记</a></li>
                     
-
-                    
-
-                    
-
-                    
-
+                </ul>
                 
             </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Featured Tags -->
-
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#随笔" title="随笔" rel="1">随笔</a>
-            
-        
+        </div>
     </div>
-</section>
+</article>
 
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
 
-        
-            <img id = "avatar_pic" src="/img/avatar/ironman.png" />
-        
 
-        
-            <p>保持欲望，保持愚蠢</p>
-        
 
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
 
-            
 
-            
 
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/tkspuk">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
-    </div>
-</section>
 
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/article/PySnooper-basis/">理解Python的神器PySnooper调试程序</a>
-        </li>
-      
-        <li>
-          <a href="/article/net-config-text-parsing/">网络自动化配置文本解析</a>
-        </li>
-      
-        <li>
-          <a href="/article/neo4j-basis/">neo4j入门介绍</a>
-        </li>
-      
-        <li>
-          <a href="/article/网络自动化资产采集模块/">网络自动化资产采集模块</a>
-        </li>
-      
-        <li>
-          <a href="/article/使用GitBook进行知识整理/">使用GitBook进行知识整理</a>
-        </li>
-      
-    </ul>
-  </div>
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-        <hr>
-    
-        <!-- Friends Blog -->
 
-<h5>FRIENDS</h5>
-<ul class="list-inline">
-
-    
-        <li><a href="https://byto.top/tutorial_gitbook/" target="_blank">gitbook学习笔记</a></li>
-    
-        <li><a href="https://byto.top/tutorial_python/" target="_blank">Python学习笔记</a></li>
-    
-</ul>
-
-        <hr>
-    
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-
-        <hr>
-    
-        <!-- Categories -->
-
-    <h5>categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人/">个人</a><span class="category-list-count">1</span></li></ul>
-    </div>
-
-        <hr>
-    
-</div>
-
-        
-    </div>
-</div>
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
 
 
     <!-- Footer -->

@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://byto.top/article/PySnooper-basis/</loc>
+        <lastmod>2020-01-05T14:53:14.534Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://byto.top/article/net-config-text-parsing/</loc>
+        <lastmod>2020-01-05T13:31:34.532Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://byto.top/article/neo4j-basis/</loc>
         <lastmod>2020-01-05T08:56:14.162Z</lastmod>
         <changefreq>weekly</changefreq>

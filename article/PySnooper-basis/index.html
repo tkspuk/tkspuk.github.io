@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          neo4j入门介绍 - locus | Blog
+          理解Python的神器PySnooper调试程序 - locus | Blog
         
     </title>
 
-    <link rel="canonical" href="http://byto.top/article/neo4j-basis/">
+    <link rel="canonical" href="http://byto.top/article/PySnooper-basis/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -93,7 +93,7 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>neo4j入门介绍</h1>
+                        <h1>理解Python的神器PySnooper调试程序</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by locus on
@@ -217,20 +217,34 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="什么是图数据库">什么是图数据库</h2>
-<p>图数据库名字的由来其实与其在底层的存储方式有关，Neo4j底层会以图的方式把用户定义的节点以及关系存储起来，通过这种方式，可是高效的实现从某个节点开始，通过节点与节点间关系，找出两个节点间的联系。</p>
-<h2 id="neo4j安装及实践">Neo4j安装及实践</h2>
-<p>为了搭建环境，用Docker来运行一个包含Neo4j的容器。</p>
-<p>从Docker Hub上pull一个Neo4j的镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull neo4j</span><br></pre></td></tr></table></figure>
-<p>启动一个Neo4j的容器</p>
-<figure class="highlight docker"><figcaption><span>run --publish</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">在浏览器中访问loalhost:<span class="number">7474</span>可以看到如下的UI界面，输入默认用户名和密码**neo4j**即可连接到neo4j数据库。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 简单的命令示例：</span></span><br></pre></td></tr></table></figure>
-<p>CREATE (embiid: PLAYER {name: ‘Embiid’, height: ‘2.13m’, nationality: ‘Cameroon’})</p>
-<p>MATCH (embiid:PLAYER{name:‘Embiid’})<br>
-MERGE (embiid)-[:LIKES{since:‘2014’}]-&gt;(Rihanna: SINGER{name:‘Rihanna’, dob:‘1988/2/20’,bloodType:‘O’})</p>
-<pre><code>
-
-</code></pre>
+                <h2 id="pysnooper介绍">PySnooper介绍</h2>
+<p>print对很多人来说算是最常用的debug神器了，只需要在合适的地方插入print打印变量的值，就能判断代码在这个地方是不是还按照你的预期在运行。不过这也带来一些麻烦：首先需要找准位置，然后写出对应的print语句。当函数复杂、变量多的时候确实挺烦的，通常需要多个地方插入多个变量的print。</p>
+<p>最近一个刚刚上线的Python包“PySnooper”更优雅地解决了这一需求——只需要对关注的函数前加上一个装饰器@pysnooper.snoop()，就可以将这个函数运行的时间，行号、运行过程中变量的数值以及代码等内容输出到stderr。项目已经有超过13.1K个star，可以说是相当火爆了。</p>
+<blockquote>
+<p><a href="https://github.com/cool-RR/PySnooper" target="_blank" rel="noopener">https://github.com/cool-RR/PySnooper</a></p>
+</blockquote>
+<p>PySnooper有以下两个作用：</p>
+<blockquote>
+<p><strong>首先，学习与理解Python执行逻辑</strong>，在新手学习中，经过困扰的是一段代码不知道背后机器是如何进行执行的，PySnooper可以解决这个问题。</p>
+</blockquote>
+<blockquote>
+<p><strong>其次，程序debug调试</strong>，这个就是开头的作用，用于程序调试。</p>
+</blockquote>
+<h2 id="使用方法">使用方法</h2>
+<p>安装很简单，直接使用pip就行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pysnooper</span><br></pre></td></tr></table></figure>
+<p>使用也依然简单，我们这里写个简单的运算斐波那契数列的函数进行测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function</span><br><span class="line">import pysnooper</span><br><span class="line"></span><br><span class="line">@pysnooper.snoop()</span><br><span class="line">def fib(n):</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    for i in xrange(n+1):</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        return a</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    for n in xrange(3):</span><br><span class="line">       print(fib(n), end=&apos; &apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<p>可以看到PySnooper输出了函数每条语句的运行时间（方便做性能优化测试）、变量的初始化赋值和修改后的值、行号、代码都进行了输出。最后输出的则是程序运行的结果。</p>
+<h2 id="自定义参数">自定义参数</h2>
+<p>PySnooper会输出到stderr。如果想要输出到文件，可以在命令行使用2&gt; /my/log/file.log重定向到文件。也可以给装饰器增加一个参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@pysnooper.snoop(&apos;/my/log/file.log&apos;)</span><br></pre></td></tr></table></figure>
+<p>如果想检查一些非局部变量，也可以使用参数variables：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@pysnooper.snoop(variables=(&apos;foo.bar&apos;, &apos;self.whatever&apos;))</span><br></pre></td></tr></table></figure>
+<p>通过参数depth设定调用函数的深度：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@pysnooper.snoop(depth=2)</span><br></pre></td></tr></table></figure>
+<p>如果stderr和stdout一起输出可能会看不太清楚，可以通过prefix参数给PySnooper的输出结果添加一个前缀，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@pysnooper.snoop(prefix=&apos;ZZZ &apos;)</span><br></pre></td></tr></table></figure>
 
                 
 
@@ -238,13 +252,9 @@ MERGE (embiid)-[:LIKES{since:‘2014’}]-&gt;(Rihanna: SINGER{name:‘Rihanna�
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/net-config-text-parsing/" data-toggle="tooltip" data-placement="top" title="网络自动化配置文本解析">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/网络自动化资产采集模块/" data-toggle="tooltip" data-placement="top" title="网络自动化资产采集模块">Next Post &rarr;</a>
+                            <a href="/article/net-config-text-parsing/" data-toggle="tooltip" data-placement="top" title="网络自动化配置文本解析">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -300,7 +310,7 @@ MERGE (embiid)-[:LIKES{since:‘2014’}]-&gt;(Rihanna: SINGER{name:‘Rihanna�
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#什么是图数据库"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x4EC0;&#x4E48;&#x662F;&#x56FE;&#x6570;&#x636E;&#x5E93;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#neo4j安装及实践"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Neo4j&#x5B89;&#x88C5;&#x53CA;&#x5B9E;&#x8DF5;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#pysnooper介绍"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">PySnooper&#x4ECB;&#x7ECD;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#使用方法"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#自定义参数"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x81EA;&#x5B9A;&#x4E49;&#x53C2;&#x6570;</span></a></li></ol>
         
         </div>
       </aside>
