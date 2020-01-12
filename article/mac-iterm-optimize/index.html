@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          neo4j入门介绍 - locus | Blog
+          mac-iterm-optimize - locus | Blog
         
     </title>
 
-    <link rel="canonical" href="http://byto.top/article/neo4j-basis/">
+    <link rel="canonical" href="http://byto.top/article/mac-iterm-optimize/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -93,11 +93,11 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>neo4j入门介绍</h1>
+                        <h1>mac-iterm-optimize</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by locus on
-                            2020-01-05
+                            2020-01-12
                         </span>
                     </div>
                 
@@ -217,34 +217,49 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="什么是图数据库">什么是图数据库</h2>
-<p>图数据库名字的由来其实与其在底层的存储方式有关，Neo4j底层会以图的方式把用户定义的节点以及关系存储起来，通过这种方式，可是高效的实现从某个节点开始，通过节点与节点间关系，找出两个节点间的联系。</p>
-<h2 id="neo4j安装及实践">Neo4j安装及实践</h2>
-<p>为了搭建环境，用Docker来运行一个包含Neo4j的容器。</p>
-<p>从Docker Hub上pull一个Neo4j的镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull neo4j</span><br></pre></td></tr></table></figure>
-<p>启动一个Neo4j的容器</p>
-<figure class="highlight docker"><figcaption><span>run --publish</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">在浏览器中访问loalhost:<span class="number">7474</span>可以看到如下的UI界面，输入默认用户名和密码**neo4j**即可连接到neo4j数据库。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 简单的命令示例：</span></span><br></pre></td></tr></table></figure>
-<p>CREATE (embiid: PLAYER {name: ‘Embiid’, height: ‘2.13m’, nationality: ‘Cameroon’})</p>
-<p>MATCH (embiid:PLAYER{name:‘Embiid’})<br>
-MERGE (embiid)-[:LIKES{since:‘2014’}]-&gt;(Rihanna: SINGER{name:‘Rihanna’, dob:‘1988/2/20’,bloodType:‘O’})</p>
-<pre><code>
-
-</code></pre>
-
+                <h1 id="效果是这样的">效果是这样的</h1>
+<p><img src="imgs/DX-202001111111.png" alt="DX-202001111111"></p>
+<p>###安装homebrew</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<p>###安装iTerm2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install iterm2</span><br></pre></td></tr></table></figure>
+<h3 id="安装zsh并切换至zsh">安装zsh，并切换至zsh</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh</span><br><span class="line"># 从默认的bash 切换至zsh</span><br><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+<h3 id="安装字体">安装字体</h3>
+<p>切换到zsh的时候，终端会有乱码，不要怕，换了字体就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew tap caskroom/fonts  #已经迁移至下面链接</span><br><span class="line">brew tap homebrew/cask-fonts</span><br><span class="line">brew cask install font-hack-nerd-font</span><br></pre></td></tr></table></figure>
+<p>终端中修改字体：</p>
+<blockquote>
+<p>iTerm2 -&gt; Preferences -&gt; Profiles -&gt; Text -&gt; Font -&gt; Change Font</p>
+</blockquote>
+<p><img src="imgs/iterms.png" alt="iterms"></p>
+<h3 id="powerlevel9k">Powerlevel9k</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;POWERLEVEL9K_MODE=&apos;nerdfont-complete&apos;&quot; &gt;&gt; ~/.zshrc</span><br><span class="line">git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k</span><br><span class="line">echo &apos;source  ~/powerlevel9k/powerlevel9k.zsh-theme&apos; &gt;&gt; ~/.zshrc</span><br><span class="line">POWERLEVEL9K_MODE=&apos;nerdfont-complete&apos;</span><br><span class="line">source ~/powerlevel9k/powerlevel9k.zsh-theme</span><br></pre></td></tr></table></figure>
+<p>最终</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POWERLEVEL9K_MODE=&apos;nerdfont-complete&apos;</span><br><span class="line">source ~/powerlevel9k/powerlevel9k.zsh-theme</span><br><span class="line">POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs newline status)</span><br><span class="line">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()</span><br><span class="line">POWERLEVEL9K_PROMPT_ADD_NEWLINE=true</span><br></pre></td></tr></table></figure>
+<h3 id="主题">主题</h3>
+<p>主题有很多，我细化 Dracula 主题</p>
+<p><code>echo &quot;alias ls='ls -G'&quot; &gt;&gt; ~/.zshrc</code></p>
+<p>可以在下面下载：</p>
+<p><a href="https://iterm2colorschemes.com/" target="_blank" rel="noopener">https://iterm2colorschemes.com/</a></p>
+<p><a href="https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Dracula.itermcolors" target="_blank" rel="noopener">Dracula-download</a></p>
+<p><a href="imgs/Dracula.itermcolors">Dracula</a><br>
+<img src="imgs/iterm2-03.png" alt="iterm2-03"></p>
+<p><img src="imgs/iterm2-02.png" alt="iterm2-02"></p>
+<h3 id="插件">插件</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh-syntax-highlighting</span><br><span class="line">brew install zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<h3 id="最终zshrc配置文件">最终zshrc配置文件</h3>
+<p>cat ~/.zshrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/sbin</span><br><span class="line"><span class="built_in">alias</span> ls=<span class="string">'ls -G'</span></span><br><span class="line"><span class="built_in">alias</span> mtr=/usr/<span class="built_in">local</span>/sbin/mtr</span><br><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load Nerd Fonts with Powerlevel9k theme for Zsh</span></span><br><span class="line">POWERLEVEL9K_MODE=<span class="string">'nerdfont-complete'</span></span><br><span class="line"><span class="built_in">source</span> ~/powerlevel9k/powerlevel9k.zsh-theme</span><br><span class="line"></span><br><span class="line"><span class="comment"># Customise the Powerlevel9k prompts</span></span><br><span class="line">POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs newline status)</span><br><span class="line">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()</span><br><span class="line">POWERLEVEL9K_PROMPT_ADD_NEWLINE=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load Zsh tools for syntax highlighting and autosuggestions</span></span><br><span class="line">HOMEBREW_FOLDER=<span class="string">"/usr/local/share"</span></span><br><span class="line"><span class="built_in">source</span> <span class="string">"<span class="variable">$HOMEBREW_FOLDER</span>/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"</span></span><br><span class="line"><span class="built_in">source</span> <span class="string">"<span class="variable">$HOMEBREW_FOLDER</span>/zsh-autosuggestions/zsh-autosuggestions.zsh"</span></span><br><span class="line"><span class="built_in">source</span> <span class="string">"<span class="variable">$HOMEBREW_FOLDER</span>/autojump/autojump.zsh"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span> -e <span class="string">"<span class="variable">$&#123;HOME&#125;</span>/.iterm2_shell_integration.zsh"</span> &amp;&amp; <span class="built_in">source</span> <span class="string">"<span class="variable">$&#123;HOME&#125;</span>/.iterm2_shell_integration.zsh"</span></span><br></pre></td></tr></table></figure>
                 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/net-config-text-parsing/" data-toggle="tooltip" data-placement="top" title="网络自动化配置文本解析">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/网络自动化资产采集模块/" data-toggle="tooltip" data-placement="top" title="网络自动化资产采集模块">Next Post &rarr;</a>
+                            <a href="/article/PySnooper-basis/" data-toggle="tooltip" data-placement="top" title="理解Python的神器PySnooper调试程序">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -300,7 +315,7 @@ MERGE (embiid)-[:LIKES{since:‘2014’}]-&gt;(Rihanna: SINGER{name:‘Rihanna�
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#什么是图数据库"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x4EC0;&#x4E48;&#x662F;&#x56FE;&#x6570;&#x636E;&#x5E93;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#neo4j安装及实践"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Neo4j&#x5B89;&#x88C5;&#x53CA;&#x5B9E;&#x8DF5;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#效果是这样的"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6548;&#x679C;&#x662F;&#x8FD9;&#x6837;&#x7684;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装zsh并切换至zsh"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;zsh&#xFF0C;&#x5E76;&#x5207;&#x6362;&#x81F3;zsh</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装字体"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;&#x5B57;&#x4F53;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#powerlevel9k"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">Powerlevel9k</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#主题"><span class="toc-nav-number">1.0.4.</span> <span class="toc-nav-text">&#x4E3B;&#x9898;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#插件"><span class="toc-nav-number">1.0.5.</span> <span class="toc-nav-text">&#x63D2;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#最终zshrc配置文件"><span class="toc-nav-number">1.0.6.</span> <span class="toc-nav-text">&#x6700;&#x7EC8;zshrc&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
